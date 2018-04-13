@@ -12,10 +12,10 @@
 	$sql = " insert into tb_users(usuario, email, senha) values ('$user', '$email', '$senha')";
 
 	//executar a query
-	mysqli_query($link, $sql)){
+	if(mysqli_query($link, $sql)){
 		echo 'Uśuário registrado com sucesso';
 	} else{
-		echo 'Erro ao registrar usuário'
+		echo 'Erro ao registrar usuário';
 	}
 
 	?>

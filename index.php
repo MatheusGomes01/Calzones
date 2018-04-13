@@ -40,7 +40,7 @@
 								<div class="col-md-12">
 									<p>Você possui uma conta?</h3>
 										<br />
-										<form method="post" action="registra_usuario.php" id="formCadastreSe">
+										<form method="post" action="validar_acesso.php" id="formCadastreSe">
 
 
 											<div class="form-group">
