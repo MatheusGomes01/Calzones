@@ -4,7 +4,7 @@
 
 	$user = $_POST['usuario'];
 	$email = $_POST['email'];
-	$senha = $_POST['senha'];
+	$senha = md5($_POST['senha']);
 
 	$objBd = new db();
 	$link = $objBd->conecta_mysql();
