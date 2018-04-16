@@ -1,7 +1,8 @@
 <?
 session_start();
-if(!isset($_session['usuario']))
-	header('Location: index.php=erro=1');
+if(!isset($_SESSION['usuario'])){
+	header('Location: index.php?error=1');
+}
 ?>
 <!DOCTYPE HTML>
 <html lang="pt-br">
@@ -35,7 +36,7 @@ if(!isset($_session['usuario']))
 			
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">Sair</a></li>
+					<li><a href="sair.php">Sair</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
