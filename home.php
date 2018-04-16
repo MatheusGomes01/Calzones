@@ -1,3 +1,8 @@
+<?
+session_start();
+if(!isset($_session['usuario']))
+	header('Location: index.php=erro=1');
+?>
 <!DOCTYPE HTML>
 <html lang="pt-br">
 <head>
@@ -43,8 +48,12 @@
 
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
-			Usuário autenticado.
-			</div>
+			Usuário autenticado!!!
+			<br />
+			<?= $_SESSION['usuario']?>
+			<br>
+			<?= $_SESSION['email']?>
+		</div>
 		<div class="col-md-4"></div>
 
 		<div class="clearfix"></div>
