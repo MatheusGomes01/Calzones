@@ -1,3 +1,9 @@
+<?
+
+$erro = isset($_GET['erro']) ? $_GET['erro']: 0;
+echo $erro;
+?>
+
 <!DOCTYPE HTML>
 <html lang="pt-br">
 <head>
