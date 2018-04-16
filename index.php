@@ -63,7 +63,7 @@ $erro = isset($_GET['erro']) ? $_GET['erro']: 0;
 										</form>
 										<?
 										if($erro == 1){
-											echo "Usuario ou senha inválido(s).";
+											echo '<font color="#FF0000">Usuario ou senha inválido(s).</font>';
 										}
 										?>
 									</form>
