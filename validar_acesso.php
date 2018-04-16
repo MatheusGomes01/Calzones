@@ -7,19 +7,22 @@
 	$senha = $_POST['senha'];
 
 	$sql = "select * from tb_users where usuario = '$usuario' and senha = '$senha'";
+
 	$objBd = new db();
 	$link = $objBd->conecta_mysql();
 
 	$resultado_id = mysqli_query($link, $sql);
 
 	if($resultado_id){
+		$dados_usuario = mysqli_fetch_array($resultado_id);
 
-	$dados_usuario = mysqli_fetch_array($resultado_id);
-
-	var_dump($dados_usuario);
-
+		if(isset($dados_usuario['usuario'])){
+			echo "usuario existe";
+		}else{
+			header('Location: index.php?erro=1');
+		}
 	} else{
-		echo 'Erro na execução da consulta, entrar em contato com o 959915058'
+		echo 'Erro na execução da consulta, entrar em contato com o 959915058';
 	}
 
 	//update true/false
