@@ -29,7 +29,7 @@ if(!isset($_SESSION['usuario'])){
 					$.ajax({
 						url: 'incluiCalzAqui.php',
 						method: 'post',
-						data: 
+						data: { chave1: valor1, chave2: valor2,}
 						success: function(data){
 							alert(data);
 						}
