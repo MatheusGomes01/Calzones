@@ -54,9 +54,9 @@ if($usuario_existe || $email_existe){
 
 	
 	header('Location: inscrevase.php?'.$retorno_get);
+	die();
 }
 
-die();
 
 $sql = " insert into tb_users(usuario, email, senha) values ('$user', '$email', '$senha')";
 
