@@ -28,6 +28,8 @@ if(!isset($_SESSION['usuario'])){
 					
 					$.ajax({
 						url: 'incluiCalzAqui.php',
+						method: 'post',
+						data: 
 						success: function(data){
 							alert(data);
 						}
