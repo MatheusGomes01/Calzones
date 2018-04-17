@@ -16,6 +16,27 @@ if(!isset($_SESSION['usuario'])){
 
 	<!-- bootstrap - link cdn -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+	<script type="text/javascript">
+		$(document).ready( function(){
+
+
+			//evento de click
+			$('#calz_btn').click( function(){
+
+				if($('#calz_text').val().length > 0){
+					
+					$.ajax({
+						url: 'incluiCalzAqui.php',
+						success: function(data){
+							alert(data);
+						}
+					});
+				}
+			});
+
+		});
+	</script>
 	
 </head>
 
@@ -44,31 +65,44 @@ if(!isset($_SESSION['usuario'])){
 
 
 	<div class="container">
-		
-		<br /><br />
+		<div class="col-md-3">
+			<div class="panel panel-default navbar-left">
+				<div class="panel-body">
+					<h4><?= $_SESSION['usuario']?></h4>
 
-		<div class="col-md-4"></div>
-		<div class="col-md-4">
-			Usuário autenticado!!!
-			<br />
-			<?= $_SESSION['usuario']?>
-			<br>
-			<?= $_SESSION['email']?>
+					<hr />
+					<div class="col-md-6 navbar-left">
+						CALZPOSTS <br /> 1
+					</div>
+					<div class="col-md-6 navbar-left">
+						Seguidores <br /> 1
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="col-md-4"></div>
-
-		<div class="clearfix"></div>
-		<br />
-		<div class="col-md-4"></div>
-		<div class="col-md-4"></div>
-		<div class="col-md-4"></div>
-
+		<div class="col-md-3 navbar-right">
+			<div class="panel panel panel-default">
+				<div class="panel-body">
+					<a href="#">Procurar Amigos | &nbsp;<span class="glyphicon glyphicon-search"></span></a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="panel panel-default navbar-right">
+				<div class="panel-body">
+					<div class="input-group">
+						<input type="text" id="calz_text" class="form-control" placeholder="CalzAqui" maxlength="8000" />
+						<span class="input-group-btn">
+							<button class="btn btn-primary" id="calz_btn" type="button">Calz</button>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 
-</div>
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 </body>
 </html>
