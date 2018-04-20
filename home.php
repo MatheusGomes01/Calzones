@@ -29,13 +29,27 @@ if(!isset($_SESSION['usuario'])){
 					$.ajax({
 						url: 'incluiCalzAqui.php',
 						method: 'post',
-						data: { chave1: valor1, chave2: valor2,}
+						data: $('#form_calz').serialize(),
 						success: function(data){
-							alert(data);
+							$('#calz_text').val('');
+							atualizaCalz();
 						}
 					});
 				}
 			});
+
+			function atualizaCalz(){
+				//carrega o Calzaqui
+
+				$.ajax({
+					url: 'get_calzando.php',
+					success: function(data){
+						$('#calzando').html(data);
+					}
+				});
+			}
+
+			atualizaCalz();
 
 		});
 	</script>
@@ -59,7 +73,7 @@ if(!isset($_SESSION['usuario'])){
 			
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="sair.php">Sair</a></li>
+					<li><a href="sair.php">Sair<span class="glyphicon glyphicon-log-out"></span></a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
@@ -85,19 +99,30 @@ if(!isset($_SESSION['usuario'])){
 		<div class="col-md-3 navbar-right">
 			<div class="panel panel panel-default">
 				<div class="panel-body">
-					<a href="#">Procurar Amigos | &nbsp;<span class="glyphicon glyphicon-search"></span></a>
+					<a href="procurar_amigos.php">Procurar Amigos | &nbsp;<span class="glyphicon glyphicon-search"></span></a>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-3">
 			<div class="panel panel-default navbar-right">
 				<div class="panel-body">
-					<div class="input-group">
-						<input type="text" id="calz_text" class="form-control" placeholder="CalzAqui" maxlength="8000" />
+					<form id="form_calz" class="input-group">
+						<input type="text" id="calz_text" name="calz_text" class="form-control" placeholder="CalzAqui" maxlength="8000" />
 						<span class="input-group-btn">
 							<button class="btn btn-primary" id="calz_btn" type="button">Calz</button>
 						</span>
-					</div>
+					</form>
+				</div>
+			</div>				
+		</div>
+	</div>
+</div>
+</div>
+<div class="container">
+	<div class="col-md-6">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div id="calzando" class="list-group">
 				</div>
 			</div>
 		</div>
