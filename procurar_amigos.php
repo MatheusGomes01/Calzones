@@ -31,7 +31,7 @@ if(!isset($_SESSION['usuario'])){
 						method: 'post',
 						data: $('#procurar_nome_amigo').serialize(),
 						success: function(data){
-							alert(data);
+							$('#amigos').html(data);
 						}
 					});
 				}
@@ -90,12 +90,15 @@ if(!isset($_SESSION['usuario'])){
 						<input type="text" id="nome_amigo" name="nome_amigo" class="form-control" placeholder="Encontre seu amigo" maxlength="8000" />
 						<span class="input-group-btn">
 							<button class="btn btn-info" id="procurar_amigo" type="button"><span class="glyphicon glyphicon-search"></span></button>
-						</span>
+						</span>									
 					</form>
+					<br>
+					<div id="amigos" class="list-group"></div>
 				</div>
 			</div>				
 		</div>
 	</div>
+
 
 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
