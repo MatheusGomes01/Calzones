@@ -54,7 +54,7 @@ $erro = isset($_GET['erro']) ? $_GET['erro']: 0;
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<img src="imagens/icone_twitter.png" />
+				<img src="imagens/calzlogo.jpg" width="400" height="100" />
 			</div>
 
 			<div id="navbar" class="navbar-collapse collapse">
