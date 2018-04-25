@@ -3,6 +3,40 @@ session_start();
 if(!isset($_SESSION['usuario'])){
 	header('Location: index.php?error=1');
 }
+
+require_once('bd.calzones.php');
+
+$objBd = new db();
+$link = $objBd->conecta_mysql();
+
+
+$id_usuario = $_SESSION['id_usuario'];
+
+// recupera quaantidade de twwets
+$sql = "select COUNT(*) as qtde_calzs from tb_calzando where id_user = $id_usuario";
+
+$resultado_id = mysqli_query($link, $sql);
+$qtde_calzs = 0;
+
+if($resultado_id){
+	$registro = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC);
+	$qtde_calzs = $registro['qtde_calzs'];
+}else{
+	echo 'erro';
+}
+// recupera a quantidade de seguidores
+
+$sql = "select COUNT(*) as qtde_seguidores from seguidores_calz where seguidor = $id_usuario";
+
+$resultado_id = mysqli_query($link, $sql);
+$qtde_calzones = 0;
+
+if($resultado_id){
+	$registro = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC);
+	$qtde_calzones = $registro['qtde_seguidores'];
+}else{
+	echo 'erro';
+}
 ?>
 <!DOCTYPE HTML>
 <html lang="pt-br">
@@ -68,7 +102,7 @@ if(!isset($_SESSION['usuario'])){
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<img src="imagens/icone_twitter.png" />
+				<img src="imagens/calzlogo.jpg" width="400" height="100" />
 			</div>
 			
 			<div id="navbar" class="navbar-collapse collapse">
@@ -88,10 +122,10 @@ if(!isset($_SESSION['usuario'])){
 
 					<hr />
 					<div class="col-md-6 navbar-left">
-						CALZPOSTS <br /> 1
+						CALZPOSTS <br /> <?= $qtde_calzs?>
 					</div>
 					<div class="col-md-6 navbar-left">
-						Seguidores <br /> 1
+						Seguidores <br /> <?= $qtde_calzones ?>
 					</div>
 				</div>
 			</div>
